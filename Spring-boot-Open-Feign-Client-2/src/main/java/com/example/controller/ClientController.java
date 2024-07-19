@@ -8,33 +8,33 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/client")
+@RequestMapping("/api/v1/client")  // Endpoint URL http://localhost:9090/api/v1/client
 public class ClientController {
 
     @Autowired
     private Client client;
 
-    @PostMapping("/createUser")
+    @PostMapping("/createUser") // Endpoint URL : http://localhost:9090/api/v1/client/createUser
     public User createUser(@RequestBody User user) {
         return client.createUser(user);
     }
 
-    @GetMapping("/getAllUsers")
+    @GetMapping("/getAllUsers") // Endpoint URL : http://localhost:9090/api/v1/client/getAllUsers
     public List<User> getAllUsers() {
         return client.getAllUsers();
     }
 
-    @GetMapping("/getUserById/{id}")
+    @GetMapping("/getUserById/{id}") // Endpoint URL : http://localhost:9090/api/v1/client/getUserById/{id}
     public User getUserById(@PathVariable Long id) {
         return client.getUserById(id);
     }
 
-    @PutMapping("/updateUser/{id}")
+    @PutMapping("/updateUser/{id}") // Endpoint URL : http://localhost:9090/api/v1/client/updateUser/{id}
     public User updateUser(@PathVariable Long id, @RequestBody User userDetails) {
         return client.updateUser(id, userDetails);
     }
 
-    @DeleteMapping("/deleteUser/{id}")
+    @DeleteMapping("/deleteUser/{id}") // Endpoint URL : http://localhost:9090/api/v1/client/deleteUser/{id}
     public void deleteUser(@PathVariable Long id) {
         client.deleteUser(id);
         System.out.println("User deleted via Feign client");
